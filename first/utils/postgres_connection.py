@@ -2,7 +2,7 @@ import psycopg2, sys
 import psycopg2.extras
 from datetime import datetime
 class Postgresql(object):
-	def __init__(self, dbname='monster', host='localhost', port='5432', username='postgres', password='108'):
+	def __init__(self, dbname='d1kphk8cunsekh', host='ec2-52-203-160-194.compute-1.amazonaws.com', port='5432', username='ksxlyitmehfrnw', password='399565a14fdc12d86f4605632e5afffba04f177648114c1c971a9a54e12b49c1'):
 		"""
 			Create Connection with the database. With credentials passed as parameters. Functions as wrapper for default psycopg2 functions.
 		"""
@@ -20,6 +20,7 @@ class Postgresql(object):
 			cursor = connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 			return (connection, cursor)
 		except psycopg2.OperationalError:
+			raise
 			print ("Connection Error. Please Check Postgres Credentials or Settings.")
 			return None
 

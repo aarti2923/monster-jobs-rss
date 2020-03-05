@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from rest_framework import status
 import json
 from first.utils.postgres_connection import Postgresql
-from .models import RssCategory,RssData
+from .models import RssCategory,RssData,CreateTable
 
 @api_view(['GET'])
 def RssFeedCat(request):
@@ -23,5 +23,16 @@ def RssFeedData(request):
 	response = RssData().rss_feed_data(cat_id)
 
 	return HttpResponse(json.dumps({"status":"SUCCESS", "response":response}), content_type="application/json")
+
+
+@api_view(['POST'])
+def RssCreateTable(request):
+	response = CreateTable().RssCreate()
+	return HttpResponse(json.dumps({'status':"SUCCESS"}), content_type="application/json")
+
+@api_view(['POST'])
+def RssCreateTable(request):
+	response = CreateTable().RssCreate()
+	return HttpResponse(json.dumps({'status':"SUCCESS"}), content_type="application/json")
 
 
