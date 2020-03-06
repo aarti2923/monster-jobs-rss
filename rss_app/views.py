@@ -27,12 +27,22 @@ def RssFeedData(request):
 
 @api_view(['POST'])
 def RssCreateTable(request):
+	print('requesting')
+
 	response = CreateTable().RssCreate()
 	return HttpResponse(json.dumps({'status':"SUCCESS"}), content_type="application/json")
 
-@api_view(['POST'])
-def RssCreateTable(request):
-	response = CreateTable().RssCreate()
-	return HttpResponse(json.dumps({'status':"SUCCESS"}), content_type="application/json")
+
+@api_view(['GET'])
+def RssQueryData(request):
+	print('check')
+
+	response = CreateTable().QueryData()
+	return HttpResponse(json.dumps({'status':response}), content_type="application/json")
+
+# @api_view(['POST'])
+# def RssCreateTable(request):
+# 	response = CreateTable().RssCreate()
+# 	return HttpResponse(json.dumps({'status':"SUCCESS"}), content_type="application/json")
 
 
